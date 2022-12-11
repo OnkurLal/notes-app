@@ -1,11 +1,11 @@
 import React from "react";  
 import './CheckListItem.css'
 const CheckListItem = (props) => {
-        const {heading, description} = props.data
+        const {id, text, completed} = props.data
     return (
         <>
-        <h3 style={{color: 'green'}} className='checkbox'> {heading}</h3> <p>{description}</p>
-        <input type='checkbox'/>
+        <h3 style={{color: 'green'}} className='checkbox'> {id}. {text}  <input type='checkbox' checked = {completed} /></h3>
+       
         </>
     )
 }
