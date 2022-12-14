@@ -4,12 +4,14 @@ import './App.css'
 import Header from './components/header'
 import Footer from './components/footer'
 import Content from './components/content'
+import LoginButton from './components/LoginButton'
 
 function App() {
 
   return (
     <>
       <Header />
+      <LoginButton />
       <Content />
       <Footer />
     </>
