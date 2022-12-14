@@ -4,23 +4,22 @@ import notes from "../notesData";
 
 const Content = () => {
     const [notesData, setNotesData] = useState(notes);
-    // const [firstName, setFirstName] = useState('Onkur');
-    const checkListItem= notesData.map(item => <CheckListItem data = {item}/>)
-    const [count, setCount] = useState(0);
-    // const handlePlusButton = ()=> setCount(count + 1)
-    // const handleMinusButton = ()=> setCount(count - 1)
-    const handleClick = (e) => {
-        e.target.name === 'plus' ? setCount(count + 1) : setCount(count - 1)
+    const handleChange = (id) => {
+        const newNotes = notesData.map((note) =>{
+            if (note.id === id) {
+                note.completed = !note.completed;
+            }
+            return note;
+        })
+        setNotesData(newNotes);
     }
+    const handleDeleteClick = (id) => setNotesData(notesData.filter(note => note.id !== id))
+    
+    const checkListItem= notesData.map(note => <CheckListItem handleChange={handleChange} key={note.id} handleDeleteClick={handleDeleteClick} data = {note}/>)
+    
     return (
         <>
-        {/* <div className = 'counter'> */}
-        {/* <button onClick= {handleClick} name='plus'>+</button>
-        <h3>Count: {count}</h3>
-        <button onClick={handleClick}>-</button> */}
-        {/* <div><h1>{firstName}</h1></div> */}
-         {checkListItem}
-         {/* </div> */}
+        {checkListItem}
         </>
     )
 }
