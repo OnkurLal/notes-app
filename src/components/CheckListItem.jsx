@@ -1,14 +1,15 @@
 import React from "react";  
-import './CheckListItem.css'
+import '../css/CheckListItem.css'
+import Checkbox from '@mui/material/Checkbox';
+
 const CheckListItem = (props) => {
         const {id, text, completed} = props.data
-        const {handleChange, handleDeleteClick} = props
+        const {handleChange} = props
     return (
         <>
         <h3 style={{color: 'green'}} className='checkbox'> 
-        {id}. {text}  
-        <input type='checkbox' id ={id} onChange={()=>handleChange(id)} checked = {completed} />
-        <button id = {id} onClick={()=>handleDeleteClick(id)}>Delete Note</button>
+        {text}  
+        <Checkbox id ={id} onChange={()=>handleChange(id)} checked = {completed} />
         </h3>
        
         </>

@@ -1,14 +1,15 @@
 import React, {useState} from 'react';
-import './LoginButton.css'
+import '../css/LoginButton.css'
+import Button from '@mui/material/Button'
 
 const LoginButton = () =>{
-    const [user, setUser] = useState(false);
+    const [isLoggedIn, setIsLoggedIn] = useState(false);
     return (
       <div className='loginButton'>
-        <button onClick={() => setUser(!user)}>
-          {user ? "Log out" : "Log in"}
-        </button>
-        <p>You are {user ? "Logged in" : "Logged out"}</p>
+        <Button variant="outlined" onClick={() => setIsLoggedIn(!isLoggedIn)}>
+          {isLoggedIn ? "Log out" : "Log in"}
+        </Button>
+        <p>You are {isLoggedIn ? "Logged in" : "Logged out"}</p>
       </div>
       )
 }
