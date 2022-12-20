@@ -1,8 +1,10 @@
 import React from "react";
+import '../css/Footer.css'
+import TaskRoundedIcon from '@mui/icons-material/TaskRounded';
 const Footer = () => {
     return (
         <>
-        <h3>Footer</h3>
+        <h3><TaskRoundedIcon id='checkIcon'fontSize="large"></TaskRoundedIcon></h3>
         </>
     )
 }

@@ -1,6 +1,10 @@
 import React, {useState} from "react";
 import CheckListItem from './CheckListItem';
 import notes from "../data/notesData";
+import Button from "@mui/material/Button";
+import '../css/Content.css'
+import TextField from '@mui/material/TextField';
+import AddCircleSharpIcon from '@mui/icons-material/AddCircleSharp';
 
 const Content = () => {
     const [notesData, setNotesData] = useState(notes);
@@ -32,12 +36,14 @@ const Content = () => {
     
     return (
         <>
-        <div>
-        <label htmlFor="">Add Item </label>
-        <input type="text" value={addItemValue} onChange={(e) => {setAddItemValue(e.target.value)}}/>
-        <button variant="outlined" className = 'p-3' onClick={handleAddItem}>Submit</button>
-        </div>
+        <div className="list">
+            <div id="addItem">
+            <TextField id="outlined-basic" className="addItemComponent" label="Add Item" size="small" variant="outlined" value={addItemValue} onChange={(e) => {setAddItemValue(e.target.value)}}/>
+            
+            <Button variant="contained" id='addButton' className="addItemComponent" size='medium' onClick={handleAddItem}><AddCircleSharpIcon size="large" id='addButton'></AddCircleSharpIcon></Button>
+            </div>
         {checkListItems}
+        </div>
         </>
     )
 }

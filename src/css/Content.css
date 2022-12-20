@@ -1,0 +1,14 @@
+.list{
+    padding: 5%;
+    outline: 1px solid cyan;
+  }
+  #addItem{
+    display: inline-flex;
+  }
+.addItemComponent{
+    margin: 0% 3% !important
+}
+#addButton{
+    color: cyan !important;
+    background-color: transparent !important;
+}

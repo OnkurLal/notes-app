@@ -1,6 +1,11 @@
 .loginButton{
     display: inline-flex;
+    margin-bottom: 5%;
+    width: 50%;
 } 
-button{
-    margin: 10px;
+#loginButton{
+    background-color: cyan !important; 
+}
+.loginComponent{
+    margin: 0% 3% !important
 }

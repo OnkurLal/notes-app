@@ -7,7 +7,7 @@ const CheckListItem = (props) => {
         const {handleChange} = props
     return (
         <>
-        <h3 style={{color: 'green'}} className='checkbox'> 
+        <h3 className='checkbox'> 
         {text}  
         <Checkbox id ={id} onChange={()=>handleChange(id)} checked = {completed} />
         </h3>
