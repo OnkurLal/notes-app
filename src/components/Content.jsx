@@ -9,6 +9,7 @@ import AddCircleSharpIcon from '@mui/icons-material/AddCircleSharp';
 const Content = () => {
     const [notesData, setNotesData] = useState(notes);
     const [addItemValue, setAddItemValue] = useState('');
+    const [seeCompleted, setSeeCompleted] = useState(false);
 
     const handleChange = (id) => {
         const newNotes = notesData.map((note) =>{
@@ -19,6 +20,7 @@ const Content = () => {
         })
         setNotesData(newNotes);
     }
+    
     
     const checkListItems= notesData.map(note => {
         if (!note.completed){
@@ -32,7 +34,10 @@ const Content = () => {
         setNotesData(tempArray)
         setAddItemValue('')
     }
-
+    const handleSeeCompletedTasks = () => {
+        setSeeCompleted(!seeCompleted)
+        return seeCompleted ? notesData.filter(note => !note.completed) : notesData.filter(note => note.completed)
+    }
     
     return (
         <>
@@ -40,9 +45,10 @@ const Content = () => {
             <div id="addItem">
             <TextField id="outlined-basic" className="addItemComponent" label="Add Item" size="small" variant="outlined" value={addItemValue} onChange={(e) => {setAddItemValue(e.target.value)}}/>
             
-            <Button variant="contained" id='addButton' className="addItemComponent" size='medium' onClick={handleAddItem}><AddCircleSharpIcon size="large" id='addButton'></AddCircleSharpIcon></Button>
+            <Button  type="submit" variant="contained" id='addButton' className="addItemComponent" size='medium' onSubmit={handleAddItem}><AddCircleSharpIcon size="large" id='addButton'></AddCircleSharpIcon></Button>
             </div>
         {checkListItems}
+        <Button variant="contained" id="completedButton" size='medium' onClick={handleSeeCompletedTasks}>{seeCompleted ? 'See Uncompleted Tasks': 'See Completed Tasks'}</Button>
         </div>
         </>
     )
