@@ -1,4 +1,7 @@
-.checkbox{
+.task{
     font-weight: bold;
     font-style: italic;
+}
+.checkbox{
+    color: cyan !important;
 }
